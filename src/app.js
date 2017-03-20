@@ -35,6 +35,8 @@ function setUpAPI() {
 
     //Serve main page
     router.get('/', (req, res) => res.sendFile(__dirname + '/index.html'));
+    router.get('/css', (req, res) => res.sendFile(__dirname + '/style.css'));
+    router.get('/js', (req, res) => res.sendFile(__dirname + '/script.js'));
     
     app.use('/', router);
 }
