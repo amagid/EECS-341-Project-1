@@ -40,7 +40,10 @@ function q3(studioName) {
 
 //Q4: Names of movie stars who star only in movies made by studios with same address
 function q4() {
-
+    return connection.query(`select starName from movieStar where starName not in (select movieStar.starName from movieStar natural join stars natural join movies inner join stud on movies.studioName = stud.name where movieStar.address <> stud.address);`)
+    .then(result => {
+        return result[0];
+    });
 }
 
 //Q5: Names of movie stars who starred in all movies produced by MGM studios... not a dynamic query?
