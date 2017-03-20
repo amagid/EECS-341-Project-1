@@ -32,7 +32,10 @@ function q2() {
 
 //Q3: Name of richest movie producer for a given Studio
 function q3(studioName) {
-
+    return connection.query(`select movieExec.name from movieExec inner join movies on movies.producerC = movieExec.cert where movies.studioName = "${studioName}" and movieExec.networth = (select max(networth) from movies inner join movieExec on movies.producerC = movieExec.cert where movies.studioName = "${studioName}" group by movies.studioName) group by movieExec.name;`)
+    .then(result => {
+        return result[0];
+    });
 }
 
 //Q4: Names of movie stars who star only in movies made by studios with same address
