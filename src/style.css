@@ -28,6 +28,7 @@ h1 {
     display:block;
     margin: 10px 0;
     clear: both;
+    resize: none;
 }
 
 .query {
