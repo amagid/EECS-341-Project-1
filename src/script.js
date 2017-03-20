@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $('#submit_custom').click(function() {
         var elem = $(this);
-        $.post('/custom', { query: $(this).sibings('.custom_query').val() }, function(result) {
+        $.post('/custom', { query: $(this).siblings('.custom_query').val() }, function(result) {
             elem.siblings('.output').text(JSON.stringify(result, null, 4));
         });
     });
