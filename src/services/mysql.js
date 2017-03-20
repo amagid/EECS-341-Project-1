@@ -10,7 +10,6 @@ module.exports = {
 var _connection;
 
 function connect() {
-    return Promise.resolve(true);//TEMPORARY SO THAT I CAN START THE SERVER UP BEFORE I INSTALL MYSQL MODULE
     if (!_connection) {
         const db = config.get().db;
         return _connection = new Sequelize(db.name, db.username, db.password, {
