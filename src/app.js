@@ -10,9 +10,8 @@ const responsePromise = require('./middlewares/response-promise');
 const morgan = require('morgan');
 const cors = require('cors');
 
-db.connect().then(() => {
-    setUpAPI();
-});
+db.connect();
+setUpAPI();
 
 const server = http.Server(app);
 

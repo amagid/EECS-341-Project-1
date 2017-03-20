@@ -1,5 +1,11 @@
 //This file simply contains a bunch of querying functions, both static and dynamic. Exists only for organization.
 
+//Connect to db, or retrieve existing connection if already connected.
+let connection;
+require('../services/mysql').connect().then(_connection => {
+    connection = _connection;
+});
+
 module.exports = {
     q1,
     q2,
@@ -10,7 +16,10 @@ module.exports = {
 
 //Q1: Titles and Years of movies with a particular Star
 function q1(starName) {
-
+    return connection.query(`select movieTitle, movieYear from movies natural join stars where starName="${starName}";`)
+    .then(result => {
+        return result[0];
+    });
 }
 
 //Q2: Titles and Years of longest movies for each Studio

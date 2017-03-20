@@ -4,7 +4,7 @@
 
 const queries = require("./queries.js");
 
-module.exports = function mountAPI(router) {
+module.exports = (router) => {
 
     //Test route
     router.get('/sayhi', (req, res) => res.promise('Hi!'));

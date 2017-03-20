@@ -12,7 +12,7 @@ var _connection;
 function connect() {
     if (!_connection) {
         const db = config.get().db;
-        return _connection = new Sequelize(db.name, db.username, db.password, {
+        _connection = new Sequelize(db.name, db.username, db.password, {
                 host: 'localhost',
                 dialect: 'mysql',
                 pool: {
@@ -20,7 +20,8 @@ function connect() {
                     min: 0,
                     idle: 10000
                 }
-            }).authenticate()
+            });
+        return _connection.authenticate()
             .then(function (err) {
                 console.log('Connection has been established successfully.');
                 return _connection;
@@ -30,6 +31,6 @@ function connect() {
                 throw err;
             });
     } else {
-        return _connection;
+        return Promise.resolve(_connection);
     }
 }
