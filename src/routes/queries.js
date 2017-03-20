@@ -24,7 +24,10 @@ function q1(starName) {
 
 //Q2: Titles and Years of longest movies for each Studio
 function q2() {
-
+    return connection.query(`select movies.movieTitle, movies.movieYear, movies.studioName from movies inner join (select movies.studioName, max(movies.length) "maxlength" from movies group by movies.studioName) m2 on movies.studioName = m2.studioName and movies.length = m2.maxlength;`)
+    .then(result => {
+        return result[0];
+    });
 }
 
 //Q3: Name of richest movie producer for a given Studio
