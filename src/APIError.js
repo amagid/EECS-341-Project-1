@@ -1,3 +1,5 @@
+//For beautification of errors.
+
 'use strict';
 module.exports = (status, message) => { return new APIError(status, message) };
 

@@ -1,15 +1,9 @@
-const express = require('express');
-const mountAPI = require('./api');
-const mountAuth = require('./auth');
+//Mount API routes onto main server. In the interest of simplicity, I
+//stripped out query validators and sanitizers. Trusting you to not
+//inject any bad SQL haha...
 
-module.exports = addRoutes;
+module.exports = function mountAPI(router) {
 
-function addRoutes(router) {
-    const api = express.Router(),
-        auth = express.Router();
-    mountAPI(api);
-    mountAuth(auth);
-    
-    router.use('/api', api);
-    router.use('/auth', auth);
+    router.get('/sayhi', (req, res) => res.promise('Hi!'));
+
 };

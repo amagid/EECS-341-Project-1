@@ -1,16 +1,17 @@
+//General service for connecting to DB and retrieving connection.
+
 const Sequelize = require('sequelize');
 const config = require('../../config');
-const logger = require('./logger');
 
 module.exports = {
-    connect,
-    connection
+    connect
 };
 
-const _connection;
+var _connection;
 
-function connect(force = false) {
-    if (!_connection || force) {
+function connect() {
+    return Promise.resolve(true);//TEMPORARY SO THAT I CAN START THE SERVER UP BEFORE I INSTALL MYSQL MODULE
+    if (!_connection) {
         const db = config.get().db;
         return _connection = new Sequelize(db.name, db.username, db.password, {
                 host: 'localhost',
@@ -22,11 +23,11 @@ function connect(force = false) {
                 }
             }).authenticate()
             .then(function (err) {
-                logger.info('Connection has been established successfully.');
+                console.log('Connection has been established successfully.');
                 return _connection;
             })
             .catch(function (err) {
-                logger.error('Unable to connect to the database:', err);
+                console.log('Unable to connect to the database:', err);
                 throw err;
             });
     } else {

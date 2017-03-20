@@ -1,2 +1,5 @@
-# Node Boilerplate
-A basic Node boilerplate just how I like it with commented socket.io implementation.
+# EECS 341 Project 1
+
+### To Test
+1. Install nodejs & npm on your computer
+2. "npm run start"
