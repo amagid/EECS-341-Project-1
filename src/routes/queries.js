@@ -48,5 +48,8 @@ function q4() {
 
 //Q5: Names of movie stars who starred in all movies produced by MGM studios... not a dynamic query?
 function q5() {
-
+    return connection.query(`select s.starName from stars s where not exists (select * from movies where movies.studioName = "MGM" and not exists (select * from stars where stars.movieTitle = movies.movieTitle and stars.movieYear = movies.movieYear and stars.starName = s.starName)) group by s.starname;`)
+    .then(result => {
+        return result[0];
+    });
 }
