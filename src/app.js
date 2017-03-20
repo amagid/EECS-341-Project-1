@@ -32,5 +32,9 @@ function setUpAPI() {
     //Mount routes
     const router = express.Router();
     routes(router);
+
+    //Serve main page
+    router.get('/', (req, res) => res.sendFile(__dirname + '/index.html'));
+    
     app.use('/', router);
 }
