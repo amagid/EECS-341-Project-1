@@ -17,6 +17,9 @@ module.exports = {
 
 //Q1: Titles and Years of movies with a particular Star
 function q1(starName) {
+    if (!starName) {
+        return "Star Name cannot be empty!";
+    }
     return connection.query(`select movieTitle, movieYear from movies natural join stars where starName="${starName}";`)
     .then(_stripdata);
 }
@@ -29,6 +32,9 @@ function q2() {
 
 //Q3: Name of richest movie producer for a given Studio
 function q3(studioName) {
+    if (!studioName) {
+        return "Studio Name cannot be empty!";
+    }
     return connection.query(`select movieExec.name from movieExec inner join movies on movies.producerC = movieExec.cert where movies.studioName = "${studioName}" and movieExec.networth = (select max(networth) from movies inner join movieExec on movies.producerC = movieExec.cert where movies.studioName = "${studioName}" group by movies.studioName) group by movieExec.name;`)
     .then(_stripdata);
 }
@@ -46,6 +52,9 @@ function q5() {
 }
 
 function custom(query) {
+    if (!query) {
+        return "Query cannot be empty!";
+    }
     return connection.query(query)
     .then(_stripdata);
 }
