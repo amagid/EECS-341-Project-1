@@ -4,8 +4,7 @@
   "description": "EECS 341 Project 1",
   "main": "src/app.js",
   "scripts": {
-    "start": "node src/app.js",
-    "test": "mocha ./tests"
+    "start": "node src/app.js"
   },
   "author": "Aaron Magid",
   "dependencies": {

@@ -16,7 +16,7 @@ setUpAPI();
 const server = http.Server(app);
 
 //Conditional port assignment to allow you to connect via a different port
-//if you would prefer that. Default is 3001.
+//on startup if you would prefer that. Default is 3001.
 server.listen(process.env.PORT || config.app.port);
 console.log(`Server listening on port ${process.env.PORT || config.app.port}`);
 
