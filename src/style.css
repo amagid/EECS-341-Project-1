@@ -1,4 +1,53 @@
-h1 {
+body {
+    font-family: Helvetica;
     color: #333;
+}
+
+h1 {
     font-size: 30px;
+}
+
+.querybox {
+    border-radius: 10px;
+    border: 1px solid #888;
+    background-color: #AAA;
+    width: 100%;
+}
+
+.querybox:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.queryname {
+    font-size: 20px;
+}
+
+.custom_query {
+    width: 100%;
+    display:block;
+    margin: 10px 0;
+    clear: both;
+}
+
+.query {
+    width: 200px;
+    float: left;
+    margin-right: 20px;
+    display:block;
+}
+
+.submit {
+    float: left;
+    display:block;
+}
+
+.output_label {
+    font-size: 16px;
+    margin: 20px 0 10px 0;
+}
+
+.output {
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #888;
 }
