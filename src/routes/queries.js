@@ -44,6 +44,7 @@ function q5() {
     .then(_stripdata);
 }
 
+//Strips out all unnecessary information attached to data.
 function _stripdata(duplicateResultArray) {
     return duplicateResultArray[0];
 }
