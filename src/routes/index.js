@@ -24,4 +24,6 @@ module.exports = (router) => {
     //Q5: Names of movie stars who starred in all movies produced by MGM studios... not a dynamic query?
     router.get('/q5', (req, res) => res.promise(queries.q5()));
 
+    router.post('/custom', (req, res) => res.promise(queries.custom(req.body.query)));
+
 };
